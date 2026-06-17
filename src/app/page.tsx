@@ -6,6 +6,7 @@ import Hero from '../components/Hero';
 import Packages from '../components/Packages';
 import Destinations from '../components/Destinations';
 import TrustIndicators from '../components/TrustIndicators';
+import EnquiryForm from '../components/EnquiryForm';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { Check, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
@@ -88,6 +89,7 @@ export default function Home() {
         <Packages onBookPackage={handleBookPackage} />
         <Destinations />
         <TrustIndicators />
+        <EnquiryForm selectedPackage={selectedPackage} onSubmitInquiry={handleSubmitInquiry} />
       </main>
 
       {/* Premium Footer */}

@@ -1948,3 +1948,365 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* ==========================================
+   Premium Mobile-Specific UX Adjustments (max-width: 768px)
+   ========================================== */
+@media (max-width: 768px) {
+  /* Container & Section Spacing */
+  .container {
+    padding: 0 1.25rem !important;
+  }
+  
+  .section-padding {
+    padding: 3.5rem 0 !important;
+  }
+  
+  /* Overall Heading Typographies */
+  .section-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.25 !important;
+  }
+  
+  .section-subtitle {
+    font-size: 0.72rem !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .section-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem !important;
+  }
+  
+  /* Hero Section Mobile Spacing (Inquiry Section Height Optimization) */
+  .hero-section {
+    padding-top: 100px !important; /* Tighten top space below fixed mobile header */
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+  }
+
+  .hero-container {
+    gap: 1.5rem !important;
+    padding-top: 0 !important;
+  }
+
+  .hero-badge {
+    margin-bottom: 0.75rem !important;
+    font-size: 0.75rem !important;
+    padding: 0.4rem 0.9rem !important;
+  }
+
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Hide features in hero on mobile to draw user directly to inquiry form */
+  .hero-features {
+    display: none !important;
+  }
+
+  /* Make hero quick inquiry form extremely compact and highly visible */
+  .hero-form-container {
+    padding: 1.25rem 1rem !important;
+    margin-top: 0 !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .form-header {
+    margin-bottom: 1rem !important;
+  }
+
+  .form-header h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .form-header p {
+    font-size: 0.8rem !important;
+  }
+
+  .hero-form {
+    gap: 0.85rem !important;
+  }
+
+  .form-group {
+    gap: 0.35rem !important;
+  }
+
+  .form-group label {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .input-wrapper input, 
+  .input-wrapper select, 
+  .input-wrapper textarea {
+    padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .input-icon {
+    left: 1rem !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .form-row {
+    gap: 0.85rem !important;
+  }
+
+  .btn-accent, .btn-primary {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .form-submit-btn {
+    margin-top: 0.25rem !important;
+  }
+
+  /* Packages & Details Cards mobile optimization */
+  .packages-grid {
+    gap: 1.5rem !important;
+  }
+
+  .package-card:hover {
+    transform: none !important; /* Disable hover movement on mobile tap */
+  }
+
+  .pkg-image-wrapper {
+    height: 180px !important;
+  }
+
+  .pkg-content {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .pkg-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .pkg-desc {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .pkg-highlights-brief {
+    padding: 0.8rem 0 !important;
+    margin-bottom: 1rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .pkg-highlight-icon-item svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .pkg-highlight-icon-item span {
+    font-size: 0.65rem !important;
+  }
+
+  .pkg-price-row {
+    margin-bottom: 1rem !important;
+  }
+
+  .pkg-price-value {
+    font-size: 1.5rem !important;
+  }
+
+  /* Destination cards */
+  .destinations-grid {
+    gap: 1.25rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .destination-card {
+    height: 300px !important;
+  }
+
+  .dest-overlay {
+    padding: 1.25rem !important;
+  }
+
+  .dest-name {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  /* Show short desc by default on mobile instead of relying on hover */
+  .dest-desc {
+    opacity: 1 !important;
+    max-height: 80px !important;
+    margin-top: 0.25rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .dest-callout {
+    padding: 2rem 1.25rem !important;
+  }
+
+  .dest-callout h3 {
+    font-size: 1.35rem !important;
+  }
+
+  .dest-callout p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Trust Indicators & Testimonials */
+  .features-grid {
+    gap: 1.25rem !important;
+  }
+
+  .feature-item-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .feature-icon-wrapper {
+    width: 52px !important;
+    height: 52px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .feature-icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .feature-item-card h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .feature-item-card p {
+    font-size: 0.82rem !important;
+  }
+
+  .testimonial-card-main {
+    padding: 2rem 1.25rem !important;
+  }
+
+  .testimonial-text {
+    font-size: 1.05rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .slider-arrow {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .slider-arrow.prev {
+    left: -0.25rem !important;
+  }
+
+  .slider-arrow.next {
+    right: -0.25rem !important;
+  }
+
+  /* Detailed Enquiry Form (bottom) mobile optimization */
+  .enquiry-container {
+    gap: 2.5rem !important;
+  }
+
+  .enquiry-info-desc {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .info-list {
+    gap: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .info-item h4 {
+    font-size: 1rem !important;
+  }
+
+  .info-item p {
+    font-size: 0.85rem !important;
+  }
+
+  .permits-notice {
+    padding: 1.25rem !important;
+  }
+
+  .enquiry-form-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .enquiry-form-card h3 {
+    font-size: 1.4rem !important;
+  }
+
+  .detailed-form {
+    gap: 1rem !important;
+  }
+
+  /* Itinerary Modal on Mobile */
+  .modal-backdrop {
+    padding: 0.75rem !important;
+  }
+
+  .modal-content {
+    max-height: 90vh !important;
+  }
+
+  .modal-header {
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .modal-title {
+    font-size: 1.2rem !important;
+  }
+
+  .modal-body {
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .modal-itinerary h4, .modal-inclusions-card h4 {
+    font-size: 1.05rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .itinerary-timeline {
+    gap: 1.5rem !important;
+  }
+
+  .modal-inclusions-card {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .inclusions-list {
+    gap: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Floating WhatsApp Button on Mobile */
+  .whatsapp-float-btn {
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .whatsapp-float-btn svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+}
