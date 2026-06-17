@@ -121,7 +121,7 @@ export default function EnquiryForm({ selectedPackage, onSubmitInquiry }: Enquir
               <span className="info-icon">📞</span>
               <div>
                 <h4>Call / WhatsApp</h4>
-                <p>+91 98765 43210 / +91 99999 88888</p>
+                <p>+91 910-366-2018</p>
               </div>
             </div>
 
@@ -173,7 +173,7 @@ export default function EnquiryForm({ selectedPackage, onSubmitInquiry }: Enquir
                     type="tel"
                     id="enq-phone"
                     name="phone"
-                    placeholder="e.g. +91 9876543210"
+                    placeholder="e.g. +91 910-366-2018"
                     value={formData.phone}
                     onChange={handleChange}
                   />

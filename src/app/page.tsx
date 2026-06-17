@@ -134,7 +134,7 @@ export default function Home() {
             </div>
             <div className="footer-contact-item">
               <Phone size={16} />
-              <span>+91 98765 43210</span>
+              <span>+91 910-366-2018</span>
             </div>
             <div className="footer-contact-item">
               <Mail size={16} />
@@ -203,7 +203,7 @@ export default function Home() {
               </button>
               
               <a 
-                href={`https://wa.me/919876543210?text=Hi!%20My%20name%20is%20${encodeURIComponent(inquiryDetails.name)}.%20I%20just%20submitted%20an%20enquiry%20for%20the%20${encodeURIComponent(getPackageName(inquiryDetails.packageType))}.%20Please%20connect%20me%20with%20a%20expert.`}
+                href={`https://wa.me/919103662018?text=Hi!%20My%20name%20is%20${encodeURIComponent(inquiryDetails.name)}.%20I%20just%20submitted%20an%20enquiry%20for%20the%20${encodeURIComponent(getPackageName(inquiryDetails.packageType))}.%20Please%20connect%20me%20with%20a%20expert.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-accent flex-center"

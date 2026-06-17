@@ -65,9 +65,9 @@ export default function Header({ onEnquireClick }: HeaderProps) {
         </nav>
 
         <div className="header-actions">
-          <a href="tel:+919876543210" className="phone-link">
+          <a href="tel:+919103662018" className="phone-link">
             <Phone size={18} />
-            <span>+91 98765 43210</span>
+            <span>+91 910-366-2018</span>
           </a>
           <button className="btn-primary header-cta" onClick={onEnquireClick}>
             Enquire Now
@@ -91,9 +91,9 @@ export default function Header({ onEnquireClick }: HeaderProps) {
           <a href="#enquiry" onClick={(e) => handleNavClick(e, 'enquiry')}>Contact Us</a>
           
           <div className="mobile-nav-footer">
-            <a href="tel:+919876543210" className="mobile-phone-link">
+            <a href="tel:+919103662018" className="mobile-phone-link">
               <Phone size={18} />
-              <span>+91 98765 43210</span>
+              <span>+91 910-366-2018</span>
             </a>
             <button className="btn-primary w-full" onClick={() => { setIsMobileMenuOpen(false); onEnquireClick(); }}>
               Enquire Now
