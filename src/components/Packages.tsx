@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Clock, MapPin, Users, Hotel, Car, Check, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, Users, Hotel, Car, Check, ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 
 interface PackagesProps {
@@ -78,6 +78,23 @@ const TOUR_PACKAGES: PackageItem[] = [
       { day: 6, title: 'Pangong to Leh via Chang La', desc: 'Return journey to Leh. Visit Hemis Monastery, the wealthiest monastery in Ladakh, on the way back.' },
       { day: 7, title: 'Fly back home', desc: 'Check out and transfer to airport. Depart with lifetime adventure memories.' }
     ]
+  },
+  {
+    id: 'custom',
+    name: 'Customised Ladakh Tour Design',
+    duration: 'Flexible',
+    type: 'Tailor Made',
+    price: 'On Request',
+    route: 'Your Preferred Destinations (Leh, Nubra, Pangong, Turtuk, etc.)',
+    image: '/leh_palace.png',
+    description: 'Design your own dream vacation to Ladakh. Select your own dates, stays, cab types, and destinations. Speak to our local travel experts now.',
+    inclusions: ['Tailor-made Stays & Route', 'Custom Cab Options (SUV/Tempo)', 'Flexible Daily Itineraries', 'Dedicated Expert Planning', 'Inner Line Permit Handling'],
+    itinerary: [
+      { day: 1, title: 'Arrival in Leh & Complete Rest', desc: 'Transfer to your Leh hotel. Rest completely to acclimatize to high altitude and thin air.' },
+      { day: 2, title: 'Your Custom Sightseeing Choice', desc: 'Visit Leh Palace, Spituk Gompa, Magnetic Hill, Zanskar river rafting, or monastery excursions according to your plan.' },
+      { day: 3, title: 'Nubra Valley / Pangong Lake Flexible Trip', desc: 'Head to Nubra Valley via Khardung La or Pangong Lake via Chang La. Stay in lakefront luxury Swiss tents or local homestays.' },
+      { day: 4, title: 'Tailor Made Return & Departure', desc: 'Check out from Leh hotel and transfer to Leh airport for departure with lifetime memories.' }
+    ]
   }
 ];
 
@@ -147,6 +164,12 @@ export default function Packages({ onBookPackage }: PackagesProps) {
           >
             Caravan Adventure
           </button>
+          <button 
+            className={`tab-btn ${activeTab === 'custom' ? 'active' : ''}`}
+            onClick={() => setActiveTab('custom')}
+          >
+            Customised Tour
+          </button>
         </div>
 
         {/* Package Cards Grid */}
@@ -188,9 +211,15 @@ export default function Packages({ onBookPackage }: PackagesProps) {
 
                 <div className="pkg-price-row">
                   <div className="pkg-price">
-                    <span className="pkg-price-label">Starting from</span>
-                    <span className="pkg-price-value">{pkg.price}</span>
-                    <span className="pkg-price-person">/ person</span>
+                    {pkg.price === 'On Request' ? (
+                      <span className="pkg-price-value" style={{ fontSize: '1.45rem', fontWeight: 800 }}>{pkg.price}</span>
+                    ) : (
+                      <>
+                        <span className="pkg-price-label">Starting from</span>
+                        <span className="pkg-price-value">{pkg.price}</span>
+                        <span className="pkg-price-person">/ person</span>
+                      </>
+                    )}
                   </div>
                   <button 
                     className="btn-outline-primary btn-sm"
@@ -200,13 +229,21 @@ export default function Packages({ onBookPackage }: PackagesProps) {
                   </button>
                 </div>
 
-                <button 
-                  className="btn-primary w-full pkg-book-btn"
-                  onClick={() => onBookPackage(pkg.id)}
-                >
-                  Book / Inquire Now
-                  <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-                </button>
+                <div className="pkg-enquire-buttons-row">
+                  <a href="tel:+919103662018" className="btn-call-enquire">
+                    <Phone size={14} />
+                    <span>Enquiry Now</span>
+                  </a>
+                  <a 
+                    href={`https://wa.me/919103662018?text=Hi!%20I'm%20interested%20in%20the%20${encodeURIComponent(pkg.name)}%20package.%20Please%20send%20details.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-whatsapp-enquire"
+                  >
+                    <MessageSquare size={14} />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -262,14 +299,32 @@ export default function Packages({ onBookPackage }: PackagesProps) {
                         </div>
                         <button 
                           className="btn-accent w-full"
+                          style={{ marginBottom: '0.75rem' }}
                           onClick={() => {
                             closeItineraryModal();
                             onBookPackage(selectedPackage.id);
                           }}
                         >
-                          Send Inquiry for this Package
+                          Customise & Send Enquiry
                         </button>
-                        <p className="modal-cta-note">Includes inner line permit fees & local taxes</p>
+                        
+                        <div className="pkg-enquire-buttons-row" style={{ marginTop: '0.5rem', gridTemplateColumns: '1fr 1fr' }}>
+                          <a href="tel:+919103662018" className="btn-call-enquire" style={{ padding: '0.6rem' }}>
+                            <Phone size={13} />
+                            <span>Enquiry Now</span>
+                          </a>
+                          <a 
+                            href={`https://wa.me/919103662018?text=Hi!%20I'm%20interested%20in%20the%20${encodeURIComponent(selectedPackage.name)}%20package.%20Please%20send%20details.`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-whatsapp-enquire"
+                            style={{ padding: '0.6rem' }}
+                          >
+                            <MessageSquare size={13} />
+                            <span>WhatsApp</span>
+                          </a>
+                        </div>
+                        <p className="modal-cta-note" style={{ marginTop: '0.75rem' }}>Includes inner line permit fees & local taxes</p>
                       </div>
                     </div>
                   </div>

@@ -7,6 +7,7 @@ import Packages from '../components/Packages';
 import Destinations from '../components/Destinations';
 import TrustIndicators from '../components/TrustIndicators';
 import WhatsAppButton from '../components/WhatsAppButton';
+import EnquiryModal from '../components/EnquiryModal';
 import { Check, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
 interface InquiryDetails {
@@ -24,6 +25,7 @@ export default function Home() {
   const [selectedPackage, setSelectedPackage] = useState<string>('general');
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
   const [inquiryDetails, setInquiryDetails] = useState<InquiryDetails | null>(null);
+  const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState<boolean>(false);
 
   const handleBookPackage = (packageId: string) => {
     setSelectedPackage(packageId);
@@ -97,20 +99,32 @@ export default function Home() {
       case 'scenic': return 'Scenic Ladakh Family Special (5D/4N)';
       case 'adventure': return 'Magical Ladakh Couple Getaway (6D/5N)';
       case 'ultimate': return 'Ultimate Ladakh Caravan Adventure (7D/6N)';
+      case 'custom': return 'Customised Ladakh Tour Design';
       default: return 'General Enquiry / Custom Package';
     }
   };
 
   return (
     <div className="app-wrapper">
-      <Header onEnquireClick={handleEnquireClick} />
+      <Header onEnquireClick={() => setIsEnquiryModalOpen(true)} />
       
       <main>
         <Hero selectedPackage={selectedPackage} onSubmitInquiry={handleSubmitInquiry} />
-        <Packages onBookPackage={handleBookPackage} />
+        <Packages onBookPackage={(pkgId) => {
+          handleBookPackage(pkgId);
+          setIsEnquiryModalOpen(true); // also open the modal if they request customization in itinerary
+        }} />
         <Destinations />
         <TrustIndicators />
       </main>
+
+      {isEnquiryModalOpen && (
+        <EnquiryModal 
+          selectedPackage={selectedPackage} 
+          onSubmitInquiry={handleSubmitInquiry} 
+          onClose={() => setIsEnquiryModalOpen(false)} 
+        />
+      )}
 
       {/* Premium Footer */}
       <footer className="site-footer">
