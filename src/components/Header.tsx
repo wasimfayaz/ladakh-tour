@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ArrowRight } from 'lucide-react';
 
 interface HeaderProps {
   onEnquireClick: () => void;
@@ -47,21 +47,20 @@ export default function Header({ onEnquireClick }: HeaderProps) {
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
         <a href="#" className="logo" onClick={(e) => handleNavClick(e, 'hero')}>
-          <span className="logo-icon">🏔️</span>
-          <div className="logo-text">
-            <span className="logo-title">Ladakh Tour</span>
-            <span className="logo-subtitle">Package.com</span>
+          <div className="logo-discover-ladakh">
+            <span className="discover-text">LADAKH TOUR</span>
+            <span className="destination-text">PACK.COM</span>
           </div>
         </a>
 
         {/* Desktop Nav */}
         <nav className="desktop-nav">
           <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>Home</a>
-          <a href="#packages" onClick={(e) => handleNavClick(e, 'packages')}>Packages</a>
-          <a href="#destinations" onClick={(e) => handleNavClick(e, 'destinations')}>Destinations</a>
-          <a href="#why-choose-us" onClick={(e) => handleNavClick(e, 'why-choose-us')}>Why Us</a>
-          <a href="#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')}>Reviews</a>
-          <a href="#enquiry" onClick={(e) => handleNavClick(e, 'enquiry')}>Contact</a>
+          <a href="#why-choose-us" onClick={(e) => handleNavClick(e, 'why-choose-us')}>About Us</a>
+          <a href="#packages" onClick={(e) => handleNavClick(e, 'packages')}>Package</a>
+          <a href="#destinations" onClick={(e) => handleNavClick(e, 'destinations')}>Activities</a>
+          <a href="#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')}>Testimonials</a>
+          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>Contact Us</a>
         </nav>
 
         <div className="header-actions">
@@ -69,8 +68,9 @@ export default function Header({ onEnquireClick }: HeaderProps) {
             <Phone size={18} />
             <span>+91 910-366-2018</span>
           </a>
-          <button className="btn-primary header-cta" onClick={onEnquireClick}>
-            Enquire Now
+          <button className="header-book-now-btn" onClick={onEnquireClick}>
+            <span>BOOK NOW</span>
+            <ArrowRight size={14} />
           </button>
           
           {/* Mobile Menu Button */}
@@ -84,11 +84,11 @@ export default function Header({ onEnquireClick }: HeaderProps) {
       <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
         <nav className="mobile-nav">
           <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>Home</a>
-          <a href="#packages" onClick={(e) => handleNavClick(e, 'packages')}>Packages</a>
-          <a href="#destinations" onClick={(e) => handleNavClick(e, 'destinations')}>Destinations</a>
-          <a href="#why-choose-us" onClick={(e) => handleNavClick(e, 'why-choose-us')}>Why Us</a>
-          <a href="#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')}>Reviews</a>
-          <a href="#enquiry" onClick={(e) => handleNavClick(e, 'enquiry')}>Contact Us</a>
+          <a href="#why-choose-us" onClick={(e) => handleNavClick(e, 'why-choose-us')}>About Us</a>
+          <a href="#packages" onClick={(e) => handleNavClick(e, 'packages')}>Package</a>
+          <a href="#destinations" onClick={(e) => handleNavClick(e, 'destinations')}>Activities</a>
+          <a href="#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')}>Testimonials</a>
+          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>Contact Us</a>
           
           <div className="mobile-nav-footer">
             <a href="tel:+919103662018" className="mobile-phone-link">

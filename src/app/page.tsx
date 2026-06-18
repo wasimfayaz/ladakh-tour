@@ -6,15 +6,14 @@ import Hero from '../components/Hero';
 import Packages from '../components/Packages';
 import Destinations from '../components/Destinations';
 import TrustIndicators from '../components/TrustIndicators';
-import EnquiryForm from '../components/EnquiryForm';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { Check, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
 interface InquiryDetails {
   name: string;
   phone: string;
-  email: string;
-  city: string;
+  email?: string;
+  city?: string;
   packageType: string;
   travelers?: string;
   travelDate?: string;
@@ -58,10 +57,32 @@ export default function Home() {
     }
   };
 
-  const handleSubmitInquiry = (formData: InquiryDetails) => {
+  const handleSubmitInquiry = async (formData: InquiryDetails) => {
     setInquiryDetails(formData);
     setShowSuccessModal(true);
     document.body.style.overflow = 'hidden';
+
+    try {
+      await fetch('https://formsubmit.co/ajax/sheltertrips@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Name: formData.name,
+          Phone: formData.phone,
+          'Package Type': getPackageName(formData.packageType),
+          'No. of Travelers': formData.travelers || '2',
+          'Travel Date': formData.travelDate || 'Not Provided',
+          Message: formData.message || 'No additional message',
+          _subject: `🏔️ New Ladakh Tour Inquiry from ${formData.name}`,
+          _captcha: 'false'
+        })
+      });
+    } catch (error) {
+      console.error('Error submitting form to sheltertrips@gmail.com:', error);
+    }
   };
 
   const closeSuccessModal = () => {
@@ -89,7 +110,6 @@ export default function Home() {
         <Packages onBookPackage={handleBookPackage} />
         <Destinations />
         <TrustIndicators />
-        <EnquiryForm selectedPackage={selectedPackage} onSubmitInquiry={handleSubmitInquiry} />
       </main>
 
       {/* Premium Footer */}
@@ -179,10 +199,12 @@ export default function Home() {
                 <span className="success-label">Mobile Number:</span>
                 <span className="success-value">{inquiryDetails.phone}</span>
               </div>
-              <div className="success-details-row">
-                <span className="success-label">Email Address:</span>
-                <span className="success-value">{inquiryDetails.email}</span>
-              </div>
+              {inquiryDetails.email && inquiryDetails.email !== 'Not Provided' && (
+                <div className="success-details-row">
+                  <span className="success-label">Email Address:</span>
+                  <span className="success-value">{inquiryDetails.email}</span>
+                </div>
+              )}
               <div className="success-details-row">
                 <span className="success-label">Travelers count:</span>
                 <span className="success-value">{inquiryDetails.travelers || '2'} People</span>
@@ -205,7 +227,7 @@ export default function Home() {
               </button>
               
               <a 
-                href={`https://wa.me/919103662018?text=Hi!%20My%20name%20is%20${encodeURIComponent(inquiryDetails.name)}.%20I%20just%20submitted%20an%20enquiry%20for%20the%20${encodeURIComponent(getPackageName(inquiryDetails.packageType))}.%20Please%20connect%20me%20with%20a%20expert.`}
+                href={`https://wa.me/919103662018?text=Hi!%20My%20name%20is%20${encodeURIComponent(inquiryDetails.name)}.%20I%20just%20submitted%20an%20enquiry%20for%20the%20${encodeURIComponent(getPackageName(inquiryDetails.packageType))}.${inquiryDetails.travelers ? `%20Travelers:%20${inquiryDetails.travelers}` : ''}${inquiryDetails.travelDate ? `%20Travel%20Date:%20${inquiryDetails.travelDate}` : ''}%20Please%20connect%20me%20with%20an%20expert.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-accent flex-center"
