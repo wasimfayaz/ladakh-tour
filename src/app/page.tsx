@@ -7,6 +7,7 @@ import Packages from '../components/Packages';
 import Destinations from '../components/Destinations';
 import TrustIndicators from '../components/TrustIndicators';
 import WhatsAppButton from '../components/WhatsAppButton';
+import CallButton from '../components/CallButton';
 import EnquiryModal from '../components/EnquiryModal';
 import { Check, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
@@ -189,8 +190,9 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Widget */}
+      {/* Floating Widgets */}
       <WhatsAppButton />
+      <CallButton />
 
       {/* Success Modal */}
       {showSuccessModal && inquiryDetails && (
