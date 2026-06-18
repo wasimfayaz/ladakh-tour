@@ -49,7 +49,7 @@ export default function Header({ onEnquireClick }: HeaderProps) {
         <a href="#" className="logo" onClick={(e) => handleNavClick(e, 'hero')}>
           <div className="logo-discover-ladakh">
             <span className="discover-text">LADAKH TOUR</span>
-            <span className="destination-text">PACK.COM</span>
+            <span className="destination-text">PACKAGE.COM</span>
           </div>
         </a>
 
