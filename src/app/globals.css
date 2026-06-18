@@ -2891,3 +2891,113 @@ select.glass-input-field {
   color: #0b132b !important;
   background-color: #ffffff !important;
 }
+
+/* ==========================================
+   Responsive Mobile UX & Button Optimization
+   ========================================== */
+
+/* Tablet & Phone Adjustments (<= 768px) */
+@media (max-width: 768px) {
+  .logo-discover-ladakh .discover-text {
+    font-size: 0.62rem !important;
+    letter-spacing: 2.5px !important;
+  }
+  .logo-discover-ladakh .destination-text {
+    font-size: 1.15rem !important;
+    letter-spacing: 1px !important;
+  }
+  .header-actions {
+    gap: 0.85rem !important;
+  }
+  .header-book-now-btn {
+    padding: 0.55rem 1.15rem !important;
+    font-size: 0.75rem !important;
+    gap: 0.3rem !important;
+    border-radius: 6px !important;
+  }
+  .premium-glass-card {
+    padding: 1.75rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+  .glass-form-header {
+    margin-bottom: 1.25rem !important;
+  }
+  .glass-form-title-row h3 {
+    font-size: 1.3rem !important;
+  }
+  .glass-form-subtitle {
+    padding-left: 0 !important;
+    text-align: center !important;
+    margin-top: 0.25rem !important;
+  }
+  .glass-form-title-row {
+    justify-content: center !important;
+  }
+}
+
+/* Phone-Specific Adjustments (<= 576px) */
+@media (max-width: 576px) {
+  .header-book-now-btn svg {
+    display: none !important;
+  }
+  .header-book-now-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.7rem !important;
+  }
+  .logo-discover-ladakh .destination-text {
+    font-size: 1.05rem !important;
+  }
+  
+  .solid-white-modal-card {
+    padding: 1.75rem 1.25rem 1.25rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+  .solid-white-modal-card .glass-form-header {
+    margin-bottom: 1.25rem !important;
+  }
+  .solid-white-modal-card .glass-form-title-row h3 {
+    font-size: 1.3rem !important;
+  }
+  .solid-white-modal-card .glass-form-subtitle {
+    padding-left: 0 !important;
+    text-align: center !important;
+    margin-top: 0.25rem !important;
+  }
+  .solid-white-modal-card .glass-form-title-row {
+    justify-content: center !important;
+  }
+  
+  .btn-glass-submit {
+    padding: 0.85rem !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Small Phone Adjustments (<= 480px) */
+@media (max-width: 480px) {
+  .pkg-enquire-buttons-row {
+    gap: 0.5rem !important;
+  }
+  .btn-call-enquire, .btn-whatsapp-enquire {
+    padding: 0.7rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    gap: 0.35rem !important;
+  }
+}
+
+/* Micro Phone Adjustments (<= 375px) */
+@media (max-width: 375px) {
+  .logo-discover-ladakh .discover-text {
+    font-size: 0.55rem !important;
+    letter-spacing: 1.8px !important;
+  }
+  .logo-discover-ladakh .destination-text {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.5px !important;
+  }
+  .header-book-now-btn {
+    padding: 0.45rem 0.8rem !important;
+    font-size: 0.65rem !important;
+  }
+}
+
